@@ -1,25 +1,22 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {Link, Route, BrowserRouter, Switch} from 'react-router-dom'
+import Hills from './components/Hills'
+import King from './components/King'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <p>Click the links for fun facts about Cincinnati</p>
+        <Link to='/King'>King of Cincinnati</Link>
+        <br />
+        <Link to='/Hills'>City of hills</Link>
+        <Switch>
+          <Route path='/King' component={King} />
+          <Route path='/Hills' component={Hills} />
+        </Switch>
+      </div>
+    </BrowserRouter>
   );
 }
 
